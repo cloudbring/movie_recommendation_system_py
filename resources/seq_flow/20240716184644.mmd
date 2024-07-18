@@ -1,0 +1,16 @@
+
+sequenceDiagram
+    participant UI as UserInterface
+    participant U as User
+    participant R as Reviewer
+    participant M as MovieDatabase
+    participant RS as RecommendationSystem
+    UI->>U: rate_movie(movie, rating)
+    UI->>U: provide_feedback(movie, feedback)
+    UI->>R: generate_questionnaire(movie)
+    R->>UI: return questionnaire
+    UI->>R: provide_feedback(movie, feedback)
+    UI->>M: get_movie_details(movie)
+    M-->>UI: return movie_details
+    U->>RS: get_personalized_recommendations()
+    RS-->>U: return recommendations
